@@ -1,0 +1,158 @@
+button {
+    margin: 30px;
+    width: 100px;
+}
+
+button:disabled {
+    opacity: 0.4;
+}
+
+.block-for-figures {
+    width: 400px;
+    height: 500px;
+    float: left;
+    border: 2px blue solid;
+    margin: 30px;
+    box-shadow: 0 0 5px black;
+    position: relative;
+}
+
+.content-block-for-figures {
+    height: 400px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.content-block-for-figures div {
+    float: left;
+    /*position: absolute;*/
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.block-for-figures .content-block-for-figures input {
+    position: static;
+}
+
+.shadow-for-form {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.5;
+    display: none;
+}
+
+.block-for-figures button {
+    position: absolute;
+    top: 10px;
+}
+
+.block-for-figures button.button-add {
+    left: 10px;
+}
+
+.block-for-figures button.button-remove {
+    left: 85px;
+}
+
+.block-for-figures input {
+    position: absolute;
+    top: -30px;
+    left: 5px;
+}
+
+.form-for-new-figure {
+    width: 620px;
+    height: 320px;
+    border: 1px solid aquamarine;
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 999;
+    background: white;
+}
+
+.form-for-new-figure form {
+    position: absolute;
+    top: 40px;
+    padding: 30px;
+}
+
+.form-for-new-figure form select {
+    float: left;
+    width: 100px;
+    margin: 16px 0;
+}
+
+.form-for-new-figure form ul {
+    float: left;
+    width: 150px;
+}
+
+.form-for-new-figure form p {
+    margin: 5px 0;
+}
+
+.form-for-new-figure form p.error {
+    margin: 5px 0;
+    color: Red;
+    display: none;
+}
+
+.form-for-new-figure form input {
+    float: right;
+    width: 70px;
+}
+
+.form-for-new-figure .btn-close {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-color: red;
+    border: 1px solid black;
+    margin: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.form-for-new-figure .btn-ok {
+    position: absolute;
+    right: 120px;
+    bottom: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-for-new-figure .btn-cancel {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#picker {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 0 20px;
+    display: none;
+}
+
+#slide {
+    width: 30px;
+    height: 200px;
+    float: left;
+    display: none;
+}
