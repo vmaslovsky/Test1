@@ -27,10 +27,6 @@ let EditHtml = {
             newButton.type = options.type;
         }
 
-        ////////////////
-        ///////////////
-        ///////////////
-
         newButton.addEventListener('click', options.callback);
 
         return newButton;
@@ -78,7 +74,7 @@ let EditHtml = {
         blockForListOfProperties.innerHTML = '';
 
         for (let property in objectFigure) {
-            if (property != 'name' && property != 'parentId') {
+            if (property != 'nameFigure' && property != 'parentId') {
                 let newItemList = document.createElement('li');
                 newItemList.innerHTML = '<p> ' + property + ': <input class="' + property + '" type="text"></p>';
                 blockForListOfProperties.appendChild(newItemList);
