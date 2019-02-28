@@ -4,13 +4,16 @@ import OPTIONS_BUTTONS from './constant.js';
 import EditHtml from './editHTML.js';
 import DrawFigure from './drawFigures.js';
 
-let GeometricFigure = {
-    color: '',
-    speed: null,
-    name: '',
-    setInLocalStorage: function () {
+function GeometricFigure() {
+    this.color = '';
+    this.speed = null;
+    this.name = '';
+    this.setInLocalStorage = function () {
         let memoryForBlocks = {};
         let isEmptyLocalStorage = !!window.localStorage.getItem('memoryForBlocks');
+
+        Object.defineProperty(this, "setInLocalStorage", {enumerable: false});
+        Object.defineProperty(this, "setDataAndDrawAFigure", {enumerable: false});
 
         if (isEmptyLocalStorage) {
             memoryForBlocks = JSON.parse(window.localStorage.getItem('memoryForBlocks'));
@@ -30,8 +33,8 @@ let GeometricFigure = {
         }
         window.localStorage.setItem('memoryForBlocks', JSON.stringify(memoryForBlocks));
 
-    },
-    setDataAndDrawAFigure: function (properties, parentId) {
+    };
+    this.setDataAndDrawAFigure = function (properties, parentId) {
         this.parentId = parentId;
         for (let property in properties) {
             this[property] = properties[property];
@@ -56,36 +59,30 @@ let GeometricFigure = {
             }
         }
     }
-};
+}
 
-let Square = {
-    name: 'square',
-    width: null
-};
-Square.__proto__ = GeometricFigure;
+function Square() {
+    GeometricFigure.apply(this, arguments);
+    this.name = 'square';
+    this.width = null;
+}
 
-let Rectangle = {
-    name: 'rectangle',
-    height: null
-};
+function Rectangle() {
+    Square.apply(this, arguments);
+    this.name = 'rectangle';
+    this.height = null;
+}
 
-Rectangle.__proto__ = Square;
+function Triangle() {
+    Square.apply(this, arguments);
+    this.name = 'triangle';
+}
 
-let Triangle = {
-    name: 'triangle'
-};
-
-Triangle.__proto__ = Square;
-
-let Circle = {
-    name: 'circle',
-    radius: null
-};
-
-Circle.__proto__ = GeometricFigure;
-
-Object.defineProperty(GeometricFigure, "setInLocalStorage", {enumerable: false});
-Object.defineProperty(GeometricFigure, "setDataAndDrawAFigure", {enumerable: false});
+function Circle() {
+    GeometricFigure.apply(this, arguments);
+    this.name = 'circle';
+    this.radius = null;
+}
 
 let ListEvents = {
     addBlocksEvent: (event) => {
@@ -174,20 +171,20 @@ let ListEvents = {
 
         switch (event.target.value) {
             case 'square': {
-                EditHtml.addInputForForm(Square);
+                EditHtml.addInputForForm(new Square());
                 break;
             }
             case 'rectangle': {
-                EditHtml.addInputForForm(Rectangle);
+                EditHtml.addInputForForm(new Rectangle());
                 break;
             }
             case 'triangle': {
-                EditHtml.addInputForForm(Triangle);
+                EditHtml.addInputForForm(new Triangle());
                 break;
 
             }
             case 'circle': {
-                EditHtml.addInputForForm(Circle);
+                EditHtml.addInputForForm(new Circle());
                 break
             }
         }
@@ -219,24 +216,28 @@ let ListEvents = {
 
             switch (nameFigure) {
                 case 'square': {
-                    Square.setDataAndDrawAFigure(properties, parentId);
-                    Square.setInLocalStorage();
+                    let square = new  Square();
+                    square.setDataAndDrawAFigure(properties, parentId);
+                    square.setInLocalStorage();
                     break;
                 }
                 case 'rectangle': {
-                    Rectangle.setDataAndDrawAFigure(properties, parentId);
-                    Rectangle.setInLocalStorage();
+                    let rectangle = new  Rectangle();
+                    rectangle.setDataAndDrawAFigure(properties, parentId);
+                    rectangle.setInLocalStorage();
                     break;
                 }
                 case 'triangle': {
-                    Triangle.setDataAndDrawAFigure(properties, parentId);
-                    Triangle.setInLocalStorage();
+                    let triangle = new  Triangle();
+                    triangle.setDataAndDrawAFigure(properties, parentId);
+                    triangle.setInLocalStorage();
                     break;
 
                 }
                 case 'circle': {
-                    Circle.setDataAndDrawAFigure(properties, parentId);
-                    Circle.setInLocalStorage();
+                    let circle = new  Circle();
+                    circle.setDataAndDrawAFigure(properties, parentId);
+                    circle.setInLocalStorage();
                     break
                 }
             }
@@ -263,7 +264,7 @@ let ListEvents = {
 
                 if (top >= deltaHeight) {
                     clearInterval(timer);
-                    timer = setInterval( () => {
+                    timer = setInterval(() => {
 
                         if (top <= 0) {
                             clearInterval(timer);
@@ -304,6 +305,8 @@ const validate = (listProperty) => {
     });
 };
 
-const deleteСоnfirmation = () => { return confirm("Are you sure you want to delete?");};
+const deleteСоnfirmation = () => {
+    return confirm("Are you sure you want to delete?");
+};
 
 export default ListEvents;

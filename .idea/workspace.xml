@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3e3b6af-4c5b-4785-b3a1-8ed648924c33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js-files/drawFigures.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-files/editHTML.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-files/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/js-files/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-files/editFigures.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-files/editHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/js-files/editHTML.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js-files/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/js-files/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-files/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js-files/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js-files/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="115" column="41" lean-forward="true" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+            <state relative-caret-position="410">
+              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
                 <element signature="e#15#59#0" expanded="true" />
               </folding>
@@ -49,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="540">
               <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
             </state>
           </provider>
@@ -58,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-files/editHTML.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="63" column="79" lean-forward="true" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
+            <state relative-caret-position="137">
+              <caret line="73" selection-start-line="73" selection-end-line="74" selection-end-column="90" />
               <folding>
                 <element signature="e#15#52#0" expanded="true" />
               </folding>
@@ -70,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-files/drawFigures.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="690">
               <caret line="46" column="125" selection-start-line="46" selection-start-column="125" selection-end-line="46" selection-end-column="125" />
               <folding>
                 <element signature="e#15#59#0" expanded="true" />
@@ -137,10 +131,10 @@
         <option value="$PROJECT_DIR$/Index.html" />
         <option value="$PROJECT_DIR$/js-files/editFigures.js" />
         <option value="$PROJECT_DIR$/js-files/constant.js" />
-        <option value="$PROJECT_DIR$/js-files/editHTML.js" />
         <option value="$PROJECT_DIR$/styles.css" />
         <option value="$PROJECT_DIR$/js-files/init.js" />
         <option value="$PROJECT_DIR$/js-files/drawFigures.js" />
+        <option value="$PROJECT_DIR$/js-files/editHTML.js" />
         <option value="$PROJECT_DIR$/js-files/events.js" />
       </list>
     </option>
@@ -234,12 +228,12 @@
       <workItem from="1551090256824" duration="60000" />
       <workItem from="1551090326015" duration="66000" />
       <workItem from="1551090401649" duration="2564000" />
-      <workItem from="1551099489844" duration="91866000" />
+      <workItem from="1551099489844" duration="94515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101080000" />
+    <option name="totallyTimeSpent" value="103729000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -306,26 +300,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-files/editHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="63" column="79" lean-forward="true" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
-          <folding>
-            <element signature="e#15#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js-files/drawFigures.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="690">
           <caret line="46" column="125" selection-start-line="46" selection-start-column="125" selection-end-line="46" selection-end-column="125" />
           <folding>
             <element signature="e#15#59#0" expanded="true" />
@@ -333,10 +310,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-files/editHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="73" selection-start-line="73" selection-end-line="74" selection-end-column="90" />
+          <folding>
+            <element signature="e#15#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js-files/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="115" column="41" lean-forward="true" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+        <state relative-caret-position="410">
+          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding>
             <element signature="e#15#59#0" expanded="true" />
           </folding>

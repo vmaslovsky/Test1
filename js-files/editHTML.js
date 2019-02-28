@@ -70,6 +70,10 @@ let EditHtml = {
     },
 
     addInputForForm: (objectFigure) => {
+
+        Object.defineProperty(objectFigure, "setInLocalStorage", {enumerable: false});
+        Object.defineProperty(objectFigure, "setDataAndDrawAFigure", {enumerable: false});
+
         let blockForListOfProperties = document.querySelector('.form-for-new-figure ul');
         blockForListOfProperties.innerHTML = '';
 
