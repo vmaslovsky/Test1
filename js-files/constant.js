@@ -39,4 +39,4 @@ const OptionsCheckbox = {
     callback: ListEvents.targetDisabledButtonRemoveEvent
 };
 
-export default { OptionsButtonAdd, OptionsButtonRemove, OptionsCheckbox };
+export default {OptionsButtonAdd, OptionsButtonRemove, OptionsCheckbox};

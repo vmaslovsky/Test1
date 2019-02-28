@@ -1,30 +1,29 @@
 'use strict';
 
 import OPTIONS_BUTTONS from './constant.js';
-import create from './init.js';
-import Form from './editFigures.js';
+import EditHtml from './editHTML.js';
+import DrawFigure from './drawFigures.js';
 
 let GeometricFigure = {
     color: '',
     speed: null,
     name: '',
     setInLocalStorage: function () {
-        debugger;
         let memoryForBlocks = {};
         let isEmptyLocalStorage = !!window.localStorage.getItem('memoryForBlocks');
 
-        if(isEmptyLocalStorage){
+        if (isEmptyLocalStorage) {
             memoryForBlocks = JSON.parse(window.localStorage.getItem('memoryForBlocks'));
-            console.log(memoryForBlocks);
-            if(memoryForBlocks[this.parentId] && memoryForBlocks[this.parentId].length){
+
+            if (memoryForBlocks[this.parentId] && memoryForBlocks[this.parentId].length) {
                 memoryForBlocks[this.parentId].push(this);
-            }else {
+            } else {
                 let newBlock = [];
                 newBlock.push(this);
                 memoryForBlocks[this.parentId] = newBlock;
             }
 
-        }else {
+        } else {
             let newBlock = [];
             newBlock.push(this);
             memoryForBlocks[this.parentId] = newBlock;
@@ -40,19 +39,19 @@ let GeometricFigure = {
 
         switch (this.name) {
             case 'square': {
-                Form.DrawFigure.Square(this);
+                DrawFigure.Square(this);
                 break;
             }
             case 'rectangle': {
-                Form.DrawFigure.Rectangle(this);
+                DrawFigure.Rectangle(this);
                 break;
             }
             case 'triangle': {
-                Form.DrawFigure.Triangle(this);
+                DrawFigure.Triangle(this);
                 break;
             }
             case 'circle': {
-                Form.DrawFigure.Circle(this);
+                DrawFigure.Circle(this);
                 break
             }
         }
@@ -88,99 +87,126 @@ Circle.__proto__ = GeometricFigure;
 Object.defineProperty(GeometricFigure, "setInLocalStorage", {enumerable: false});
 Object.defineProperty(GeometricFigure, "setDataAndDrawAFigure", {enumerable: false});
 
-const ListEvents = {
-    addBlocksEvent: function (event) {
+let ListEvents = {
+    addBlocksEvent: (event) => {
 
         let selectForButtonRemove = '.button-' + OPTIONS_BUTTONS.OptionsButtonRemove.title.toLowerCase();
 
         if (!document.querySelector(selectForButtonRemove)) {
-            event.target.parentElement.appendChild(create.createButton(OPTIONS_BUTTONS.OptionsButtonRemove));
+            event.target.parentElement.appendChild(EditHtml.createButton(OPTIONS_BUTTONS.OptionsButtonRemove));
         }
 
-        create.creatingBlockForFigure(event.target.parentElement);
+        EditHtml.creatingBlockForFigure(event.target.parentElement);
 
     },
 
-    removeBlocksEvent: function (event) {
+    removeBlocksEvent: (event) => {
 
-        let listCheckbox = document.querySelectorAll("input[type='checkbox']");
+        let isDelete = deleteСоnfirmation();
 
-        for (let i = 0; i < listCheckbox.length; i++) {
+        if (isDelete) {
+            let listCheckbox = document.querySelectorAll(".block-for-figures > input[type='checkbox']");
 
-            if (listCheckbox[i].checked) {
-                listCheckbox[i].parentNode.remove()
+            for (let i = 0; i < listCheckbox.length; i++) {
+                if (listCheckbox[i].checked) {
+                    listCheckbox[i].parentNode.remove();
+                }
             }
+
+            event.target.disabled = true;
         }
-
-        event.target.disabled = true;
     },
 
-    targetDisabledButtonRemoveEvent: function (event) {
+    targetDisabledButtonRemoveEvent: (event) => {
 
-        let selectForButtonRemove = '.button-' + OPTIONS_BUTTONS.OptionsButtonRemove.title.toLowerCase();
-        let listCheckbox = document.querySelectorAll("input[type='checkbox']");
+        let listCheckbox = document.querySelectorAll(".block-for-figures > input[type='checkbox']");
 
-        let isChecked = [].some.call(listCheckbox, function (checkbox) {
-            return checkbox.checked;
-        });
+        let isChecked = [].some.call(listCheckbox, (checkbox) => checkbox.checked);
 
-        document.querySelector(selectForButtonRemove).disabled = !isChecked;
+        document.querySelector('.button-remove').disabled = !isChecked;
     },
 
-    addFigureEvent: function (event) {
+    addFigureEvent: (event) => {
+
         let uniqueParentID = event.target.parentNode.id;
         document.querySelector('form').className = uniqueParentID;
         document.querySelector('.form-for-new-figure').style.display = 'block';
         document.querySelector('.shadow-for-form').style.display = 'block';
+
     },
 
     removeFigureEvent: function (event) {
-        console.log('removeFigure', event.target);
+        let isDelete = deleteСоnfirmation();
+
+        if (isDelete) {
+            let listCheckbox = document.querySelectorAll("input[type='checkbox']");
+
+            for (let i = 0; i < listCheckbox.length; i++) {
+                if (listCheckbox[i].checked) {
+                    listCheckbox[i].parentNode.remove();
+                }
+            }
+
+            event.target.disabled = true;
+        }
     },
 
     checkedFigureEvent: function (event) {
-        console.log('checkedFigure', event.target);
+
+        let node = event.target;
+
+        while (!node.classList.length || !node.classList.contains('block-for-figures')) {
+            node = node.parentNode;
+        }
+
+        let classNameButtonRemove = '.button-remove';
+
+        let listCheckbox = document.querySelectorAll('#' + node.id + " .content-block-for-figures input[type='checkbox']");
+
+        let isChecked = [].some.call(listCheckbox, (checkbox) => checkbox.checked);
+
+        document.querySelector('#' + node.id + ' ' + classNameButtonRemove).disabled = !isChecked;
     },
 
-    changeSelectEvent: function (event) {
+    changeSelectEvent: (event) => {
         document.querySelector('#picker').style.display = 'block';
         document.querySelector('#slide').style.display = 'block';
 
         switch (event.target.value) {
             case 'square': {
-                create.addInputForForm(Square);
+                EditHtml.addInputForForm(Square);
                 break;
             }
             case 'rectangle': {
-                create.addInputForForm(Rectangle);
+                EditHtml.addInputForForm(Rectangle);
                 break;
             }
             case 'triangle': {
-                create.addInputForForm(Triangle);
+                EditHtml.addInputForForm(Triangle);
                 break;
 
             }
             case 'circle': {
-                create.addInputForForm(Circle);
+                EditHtml.addInputForForm(Circle);
                 break
             }
         }
     },
 
-    submitForm: function (event) {
+    submitForm: (event) => {
         let listInputs = document.querySelectorAll('.form-for-new-figure input');
-        if (create.validate(listInputs)) {
+        if (validate(listInputs)) {
 
             let optionButtonRemoveFigure = OPTIONS_BUTTONS.OptionsButtonRemove;
             let parentBlockID = document.querySelector('.form-for-new-figure form').className;
 
-            if(!document.querySelector('#' + parentBlockID + " .button-remove" )){
+            if (!document.querySelector('#' + parentBlockID + " .button-remove")) {
 
                 optionButtonRemoveFigure.parentBlockID = parentBlockID;
                 optionButtonRemoveFigure.styles.display = 'inline';
                 optionButtonRemoveFigure.styles.width = '75px';
                 optionButtonRemoveFigure.callback = ListEvents.removeFigureEvent;
-                document.querySelector('#' + parentBlockID).appendChild(create.createButton(optionButtonRemoveFigure));
+                document.querySelector('#' + parentBlockID).appendChild(EditHtml.createButton(optionButtonRemoveFigure));
             }
 
             let properties = {};
@@ -215,13 +241,69 @@ const ListEvents = {
                 }
             }
 
-            Form.closeModal();
+            EditHtml.closeModal();
             document.querySelector('.form-for-new-figure form p.error').style.display = 'none';
 
         } else {
             document.querySelector('.form-for-new-figure form p.error').style.display = 'block';
         }
+    },
+
+    animationFigure: (event) => {
+
+        if (event.target.tagName == "CANVAS") {
+            let figure = event.target.parentNode;
+            let speed = parseInt(figure.className.substring(7));
+            let deltaHeight = figure.parentNode.offsetHeight - figure.offsetHeight;
+            let top = 0;
+
+            let timeInterval = Math.floor(1 / speed * 1000);
+
+            let timer = setInterval(() => {
+
+                if (top >= deltaHeight) {
+                    clearInterval(timer);
+                    timer = setInterval( () => {
+
+                        if (top <= 0) {
+                            clearInterval(timer);
+                            return;
+                        }
+
+                        top -= 2;
+                        figure.style.top = top + 'px';
+
+                    }, timeInterval);
+                    return;
+                }
+
+                top += 2;
+                figure.style.top = top + 'px';
+
+            }, timeInterval);
+        }
     }
 };
+
+const validate = (listProperty) => {
+    return [].every.call(listProperty, function (inputNode) {
+
+        switch (inputNode.className) {
+            case 'color': {
+
+                let color = inputNode.value.match(/#[a-f0-9]{6}\b/gi);
+                return !!color;
+            }
+            case 'height':
+            case 'speed':
+            case 'radius':
+            case 'width': {
+                return !isNaN(parseFloat(inputNode.value)) && isFinite(inputNode.value);
+            }
+        }
+    });
+};
+
+const deleteСоnfirmation = () => { return confirm("Are you sure you want to delete?");};
 
 export default ListEvents;

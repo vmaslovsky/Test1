@@ -18,17 +18,22 @@ button:disabled {
 }
 
 .content-block-for-figures {
-    height: 400px;
-    margin: 20px 0;
+    height: 460px;
+    position: relative;
+    top: 40px;
+}
+
+.content-block-for-figures .block-for-canvas {
+    float: left;
+    margin: 0 10px;
+    height: 100%;
     position: relative;
 }
 
-.content-block-for-figures div {
-    float: left;
-    /*position: absolute;*/
+.content-block-for-figures .block-for-canvas div {
+    position: absolute;
+    top:0;
     left: 0;
-    top: 0;
-    padding: 10px;
 }
 
 .block-for-figures .content-block-for-figures input {
@@ -50,6 +55,7 @@ button:disabled {
 .block-for-figures button {
     position: absolute;
     top: 10px;
+    margin: 0;
 }
 
 .block-for-figures button.button-add {
@@ -57,7 +63,7 @@ button:disabled {
 }
 
 .block-for-figures button.button-remove {
-    left: 85px;
+    left: 90px;
 }
 
 .block-for-figures input {
